@@ -1,0 +1,14 @@
+apiVersion: eval.luxor.tech/v1alpha1
+kind: Demo
+metadata:
+  name: demo-sample
+spec:
+  replicaCount: 2
+  image: 
+    repository: ehtishammubarik/pingpong-fastapi
+    pullPolicy: IfNotPresent
+    tag: "1.0.1"
+  service: 
+    type: NodePort
+    nodePort: 30013
+  
