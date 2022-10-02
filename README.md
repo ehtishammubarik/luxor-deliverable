@@ -2,9 +2,9 @@
 Create a CRD and implement Operator to create and monitor Kubernetes resources.
 
 # Pre-reqs 
-### k8s access 
-### operator-sdk installed
-### available registry
+1. k8s access 
+2. operator-sdk installed
+3. available registry
 ## Note for Images
 1. To build required images go to <applications> dir and build server image. 
 2. update image registry, bearer token for cluster in helm-charts/demo/values.yaml files.
