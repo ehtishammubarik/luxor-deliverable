@@ -1,0 +1,2 @@
+#kubectl get pods --selector=app.kubernetes.io/name=demo --output=jsonpath={.items[*].status.podIP} |  while read -r POD; do echo "$POD" ;  done 
+kubectl get pods -o name |  while read -r POD; do kubectl delete "$POD" --wait;  done

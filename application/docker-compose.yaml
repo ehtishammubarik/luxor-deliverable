@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  aceso-fastapi:
+    build: .
+    image: rancher-fastapi:1.0.0
+    container_name: dev-ping
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "8089:80"
+    volumes:
+      - .:/code/fast_api
+    stdin_open: true
+    tty: true
+  aceso-fastapi-schedule:
+    build: . 
+    image: rancher-fastapi:1.0.0
+    container_name: dev-sch
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "8090:80"
+    volumes:
+      - .:/code/fast_api
+  aceso-fastapi-3rd:
+    build: .
+    image: rancher-fastapi:1.0.0
+    container_name: dev-3rd
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "8079:80"
+    volumes:
+      - .:/code/fast_api
+    stdin_open: true
+    tty: true
