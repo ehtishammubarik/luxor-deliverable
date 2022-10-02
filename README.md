@@ -20,7 +20,7 @@ make deploy
 kubectl get deployment -n nginx-operator-system
 ```
 # To create CR
-edit to <config/samples/eval_v1alpha1_demo.yaml>
+edit <config/samples/eval_v1alpha1_demo.yaml> to make changes to deployment through CR (demo) 
 
 ```
 kubectl apply -f config/samples/eval_v1alpha1_demo.yaml
