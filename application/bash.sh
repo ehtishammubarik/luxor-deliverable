@@ -1,2 +1,11 @@
 #kubectl get pods --selector=app.kubernetes.io/name=demo --output=jsonpath={.items[*].status.podIP} |  while read -r POD; do echo "$POD" ;  done 
-kubectl get pods -o name |  while read -r POD; do kubectl delete "$POD" --wait;  done
+podIP=$(kubectl get pods -o jsonpath={.items[*].status.podIP}) 
+ for ip in $podIP; do 
+ resp=$(curl $ip/ping)
+ echo "value of $ip is $resp";
+done
+#kubectl get pods -o name
+#  |  while read -r POD; do echo "$POD" ;  done
+
+#crontab-sa-token
+#ZXlKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNklsOHdWa1J5U25oS1VtZEpUbDlHZGtoUk1YVmlVRWhKTlZaVlIyeGxNM2RNWWpCV09YcE9ORTVXY0ZVaWZRLmV5SnBjM01pT2lKcmRXSmxjbTVsZEdWekwzTmxjblpwWTJWaFkyTnZkVzUwSWl3aWEzVmlaWEp1WlhSbGN5NXBieTl6WlhKMmFXTmxZV05qYjNWdWRDOXVZVzFsYzNCaFkyVWlPaUprWldaaGRXeDBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpXTnlaWFF1Ym1GdFpTSTZJbU55YjI1MFlXSXRjMkZ0Y0d4bExYUnZhMlZ1TFd0aloySTBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpYSjJhV05sTFdGalkyOTFiblF1Ym1GdFpTSTZJbU55YjI1MFlXSXRjMkZ0Y0d4bElpd2lhM1ZpWlhKdVpYUmxjeTVwYnk5elpYSjJhV05sWVdOamIzVnVkQzl6WlhKMmFXTmxMV0ZqWTI5MWJuUXVkV2xrSWpvaVl6SmlNelJqTnpNdE5qaGpPQzAwTWpGbUxUbGxNamN0WlRBeFl6aGhabVJqT0RGaElpd2ljM1ZpSWpvaWMzbHpkR1Z0T25ObGNuWnBZMlZoWTJOdmRXNTBPbVJsWm1GMWJIUTZZM0p2Ym5SaFlpMXpZVzF3YkdVaWZRLlAtcElNV2FHa0RReDhoQnVSY3ByOWtWbS12ak9uZmxvMTREY0Z6YjlXREE1YjAzVUdtaUhlZk5RRWtLeFlyMnF2X1ZwdHFhZ054Tk81QkJINjhJOUZoWE5GWWk0c1Jta0JoOVZSRmE4T2piMjFhWDM2SDhLYjhwMVpOMmxPSGFXWWpyX0ZQdVJxVkxyNUJpT0Zuc29fb1BsTXotRnNNMGtqaE1wUlBhTWduUHY4LUwxcGJsN2hGQ3hNRlpVQXVYVU5NbU11VFBGbFpVYmU1ck5kQWRFbWRoSm9rcV9TRmluOW5iX2VMRzJEY2VpV2p6TzFnQmhWek9BQkdnXzRZTzJyb1NNY2FHVXd0YUhCN3hSclhCMXowc3dwM1VoRFRLN1RXVFZfaENzVVZRb2UxTUxRRk1BWnhhZmNzMExSX3VITEdLNWp1Zk1UT1pTcV9RblZRNHdGUQ==

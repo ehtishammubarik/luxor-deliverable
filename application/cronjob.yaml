@@ -5,6 +5,8 @@ metadata:
 spec:
   concurrencyPolicy: Forbid
   schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5
   jobTemplate:
     spec:
       backoffLimit: 2
@@ -19,4 +21,4 @@ spec:
               command:
               - /bin/sh
               - -c
-              - kubectl get pods -o name |  while read -r POD; do kubectl delete "$POD" --wait;  done
+              - podIP=$(kubectl get pods -o jsonpath={.items[*].status.podIP}) && for ip in $podIP; do resp=$(curl $ip/ping/) > /dev/null 2>&1; echo " $ip - $resp"; done
