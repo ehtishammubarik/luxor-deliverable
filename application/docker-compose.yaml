@@ -10,7 +10,7 @@ services:
     ports:
       - "8089:80"
     volumes:
-      - .:/code/fast_api
+      - ./:/code/fast_api
     stdin_open: true
     tty: true
   aceso-fastapi-schedule:
@@ -23,7 +23,7 @@ services:
     ports:
       - "8090:80"
     volumes:
-      - .:/code/fast_api
+      - ./:/code/fast_api
   aceso-fastapi-3rd:
     build: .
     image: rancher-fastapi:1.0.0
@@ -34,6 +34,6 @@ services:
     ports:
       - "8079:80"
     volumes:
-      - .:/code/fast_api
+      - ./:/code/fast_api
     stdin_open: true
     tty: true

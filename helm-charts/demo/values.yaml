@@ -10,8 +10,12 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.0.0"
   env:
-    BASE_URL: ""
-    BEARER: ""
+    BEARER: <> # Bearer token to access cluster api
+    BASE_URL: <> # cluster server url
+    CLUSTER_ID: <> # id of cluster where deployment is deployed
+    NAMESPACE_NAME: <> # name of namespace where cluster is deployed
+    PING_INTERVAL: <> # time after which it should ping servers
+    NAME_STARTS_WITH: demo-sample # name of deployment / project.
 
 imagePullSecrets: []
 nameOverride: ""
