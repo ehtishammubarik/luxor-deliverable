@@ -38,6 +38,14 @@ spec:
             value: "{{ .Values.image.env.BASE_URL }}"
           - name: "BEARER"
             value: "{{ .Values.image.env.BEARER }}"
+          - name: "CLUSTER_ID"
+            value: "{{ .Values.image.env.CLUSTER_ID }}"
+          - name: "NAMESPACE_NAME"
+            value: "{{ .Values.image.env.NAMESPACE_NAME }}"
+          - name: "PING_INTERVAL"
+            value: "{{ .Values.image.env.PING_INTERVAL }}"
+          - name: "NAME_STARTS_WITH"
+            value: "{{ .Values.image.env.NAME_STARTS_WITH }}"
           ports:
             - name: http
               containerPort: 80
