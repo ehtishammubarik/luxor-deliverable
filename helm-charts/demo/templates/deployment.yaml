@@ -35,9 +35,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: "BASE_URL"
-            value: "{{ .Values.env.BASE_URL }}"
+            value: "{{ .Values.image.env.BASE_URL }}"
           - name: "BEARER"
-            value: "{{ .Values.env.BEARER }}"
+            value: "{{ .Values.image.env.BEARER }}"
           ports:
             - name: http
               containerPort: 80

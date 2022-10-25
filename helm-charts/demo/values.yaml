@@ -10,11 +10,11 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.0.0"
   env:
-    BEARER: <> # Bearer token to access cluster api
-    BASE_URL: <> # cluster server url
-    CLUSTER_ID: <> # id of cluster where deployment is deployed
-    NAMESPACE_NAME: <> # name of namespace where cluster is deployed
-    PING_INTERVAL: <> # time after which it should ping servers
+    BEARER: 'token-82ppn:lz7t5jpzgtt2wcbw8fbwgrrq2pkkr67hpqjx965xs4ltxb29tllbvf' # Bearer token to access cluster api
+    BASE_URL: 'https://login.rcluster.stack8s.com' # cluster server url
+    CLUSTER_ID: "c-gqnfp" # id of cluster where deployment is deployed
+    NAMESPACE_NAME: default # name of namespace where cluster is deployed
+    PING_INTERVAL: 10 # time after which it should ping servers
     NAME_STARTS_WITH: demo-sample # name of deployment / project.
 
 imagePullSecrets: []
